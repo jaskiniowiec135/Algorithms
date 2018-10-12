@@ -24,5 +24,18 @@ namespace Algorithms
         {
             InitializeComponent();
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CheckInput();
+        }
+
+        private void CheckInput()
+        {
+            if(txtInput.Text.Contains("[a-z],[A-Z]")||txtInput.Text == "")
+            {
+                txtResult.Text = "Wprowadź liczby.";
+            }
+        }
     }
 }
