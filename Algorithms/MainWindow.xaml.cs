@@ -28,48 +28,49 @@ namespace Algorithms
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(CheckInput())
+            //if(CheckInput())
+            if(true)
             {
                 List<int> numbers = new List<int>();
-                string input = txtInput.Text;
-                while(input.Contains(","))
+                string input = "12,51,81,61,26,38,61,74,26,3,15,73,31,63,96"; //txtInput.Text;
+                txtResult.Text = "";
+
+                while (input.Contains(","))
                 {
                     string tmp;
-                    tmp = input.Substring(0, txtInput.Text.IndexOf(","));
+                    tmp = input.Substring(0, input.IndexOf(","));
                     numbers.Add(Convert.ToInt32(tmp));
                     input = input.Substring(tmp.Length + 1);
                 }
                 numbers.Add(Convert.ToInt32(input));
 
-                txtResult.Text = Convert.ToString(cmbAlgorithm.SelectedIndex);
-
                 switch(cmbAlgorithm.SelectedIndex.ToString())
                 {
                     case "0":
-                        numbers.Sort(Bubble);
-                        txtResult.Text = "";
-                        for(int i = 0; i < numbers.Count - 1; i++)
-                        {
-                            txtResult.Text += numbers[i] + ", ";
-                        }
-                        txtResult.Text += numbers[numbers.Count - 1];
+                        numbers = Bubble(numbers);
                         break;
                     case "1":
-                        Insert(numbers);
+                        numbers = Insert(numbers);
                         break;
                     case "2":
-                        Chose(numbers);
+                        numbers = Chose(numbers);
                         break;
                     case "3":
-                        Merge(numbers);
+                        numbers = Merge(numbers);
                         break;
                     case "4":
-                        Heap(numbers);
+                        numbers = Heap(numbers);
                         break;
                     case "5":
-                        Quick(numbers);
+                        numbers = Quick(numbers);
                         break;
                 }
+
+                for (int i = 0; i < numbers.Count - 1; i++)
+                {
+                    txtResult.Text += numbers[i] + ", ";
+                }
+                txtResult.Text += numbers[numbers.Count - 1];
             }
 
         }
@@ -93,65 +94,61 @@ namespace Algorithms
             return result;
         }
 
-        public static int Bubble(int x, int y)
+        List<int> Bubble(List<int> x)
         {
-            if (x == 0)
+            int n = x.Count;
+            do
             {
-                if (y == 0)
+                for(int i = 0; i <n - 1; i++)
                 {
-                    return 0;
-                }
-                else
-                {
-                    return -1;
-                }
-            }
-            else
-            {
-                if (y == 0)
-                {
-                    return 1;
-                }
-                else
-                {
-                    int val = x.CompareTo(y);
-
-
-                    if (val != 0)
+                    if (x[i] > x[i + 1])
                     {
-                        return val;
-                    }
-                    else
-                    {
-                        return x.CompareTo(y);
+                        int tmp = x[i];
+                        x[i] = x[i + 1];
+                        x[i + 1] = tmp;
                     }
                 }
+                n--;
             }
+            while (n > 1);
+            return x;
         }
 
-        void Chose(List<int> numbers)
+        List<int> Insert(List<int> x)
         {
-
+            int n = x.Count;
+            for (int i = 0; i < n - 1; i++)
+            {
+                int j = i;
+                while (j>-1 && x[j] > x[j + 1])
+                {
+                    int tmp = x[j];
+                    x[j] = x[j + 1];
+                    x[j + 1] = tmp;
+                    j--;
+                }
+            }
+            return x;
         }
 
-        void Insert(List<int> numbers)
+        List<int> Chose(List<int> x)
         {
-
-        }
-        
-        void Merge(List<int> numbers)
-        {
-
+            return x;
         }
 
-        void Heap(List<int> numbers)
+        List<int> Merge(List<int> x)
         {
-
+            return x;
         }
 
-        void Quick(List<int> numbers)
+        List<int> Heap(List<int> x)
         {
+            return x;
+        }
 
+        List<int> Quick(List<int> x)
+        {
+            return x;
         }
     }
 }
