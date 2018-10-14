@@ -70,6 +70,7 @@ namespace Algorithms
                 {
                     txtResult.Text += numbers[i] + ", ";
                 }
+
                 txtResult.Text += numbers[numbers.Count - 1];
             }
 
@@ -133,11 +134,68 @@ namespace Algorithms
 
         List<int> Chose(List<int> x)
         {
-            return x;
+            List<int> output = new List<int>();
+            for (int i = x.Count - 1; i > -1 ; i--)
+            {
+                output.Add(x.Min());
+                x.Remove(x.Min());
+            }
+
+            return output;
         }
 
         List<int> Merge(List<int> x)
         {
+            if(x.Count > 2)
+            {
+                List<int> y = x.GetRange(0, x.Count / 2);
+                List<int> z = x.GetRange(x.Count / 2, x.Count - x.Count / 2);
+                x.Clear();
+                Merge(y);
+                Merge(z);
+                while(y.Count + z.Count > 0)
+                {
+                    if (y.Count > 0)
+                    {
+                        if (z.Count > 0)
+                        {
+
+                            if (y[0] > z[0])
+                            {
+                                x.Add(z[0]);
+                                z.Remove(z[0]);
+                            }
+                            else
+                            {
+                                x.Add(y[0]);
+                                y.Remove(y[0]);
+                            }
+                        }
+                        else
+                        {
+                            x.Add(y[0]);
+                            y.Remove(y[0]);
+                        }
+                    }
+                    else
+                    {
+                        x.Add(z[0]);
+                        z.Remove(z[0]);
+                    }
+                }
+            }
+            else
+            {
+                if(x.Count > 1)
+                {
+                    if(x[0] > x[1])
+                    {
+                        int tmp = x[0];
+                        x[0] = x[1];
+                        x[1] = tmp;
+                    }
+                }
+            }
             return x;
         }
 
