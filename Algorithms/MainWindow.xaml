@@ -10,8 +10,8 @@
         <Label x:Name="lblTitle" Content="Algorytmy" HorizontalAlignment="Left" Margin="153,27,0,0" VerticalAlignment="Top" FontSize="36"/>
         <TextBlock x:Name="lblInput" HorizontalAlignment="Left" Margin="17,122,0,0" TextWrapping="Wrap" Text="Wprowadź liczby całkowite oddzielone przecinkami" VerticalAlignment="Top" Height="73" Width="160" FontSize="16"/>
         <TextBox x:Name="txtInput" HorizontalAlignment="Left" Height="73" Margin="199,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontSize="16"/>
-        <TextBlock x:Name="lblAlgorithm" HorizontalAlignment="Left" Margin="17,218,0,0" TextWrapping="Wrap" Text="Wybierz algorytm sortujący" VerticalAlignment="Top" FontSize="16" Width="160"/>
-        <ComboBox x:Name="cmbAlgorithm" HorizontalAlignment="Left" Margin="199,228,0,0" VerticalAlignment="Top" Width="266" FontSize="16" SelectionChanged="ComboBox_SelectionChanged">
+        <TextBlock x:Name="lblAlgorithm" HorizontalAlignment="Left" Margin="17,331,0,0" TextWrapping="Wrap" Text="Wybierz algorytm sortujący" VerticalAlignment="Top" FontSize="16" Width="160"/>
+        <ComboBox x:Name="cmbAlgorithm" HorizontalAlignment="Left" Margin="199,331,0,0" VerticalAlignment="Top" Width="266" FontSize="16" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem>Sortowanie bąbelkowe</ComboBoxItem>
             <ComboBoxItem>Sortowanie przez wstawianie</ComboBoxItem>
             <ComboBoxItem>Sortowanie przez wybieranie</ComboBoxItem>
@@ -19,8 +19,8 @@
             <ComboBoxItem>Sortowanie przez kopcowanie</ComboBoxItem>
             <ComboBoxItem>Sortowanie szybkie</ComboBoxItem>
         </ComboBox>
-        <TextBlock x:Name="lblResult" HorizontalAlignment="Left" Margin="17,301,0,0" TextWrapping="Wrap" Text="Wynik sortowania :" VerticalAlignment="Top" FontSize="16" Height="42" Width="160"/>
-        <TextBox x:Name="txtResult" HorizontalAlignment="Left" Height="73" Margin="199,301,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontSize="16"/>
+        <TextBlock x:Name="lblResult" HorizontalAlignment="Left" Margin="17,225,0,0" TextWrapping="Wrap" Text="Wynik sortowania :" VerticalAlignment="Top" FontSize="16" Height="42" Width="160"/>
+        <TextBox x:Name="txtResult" HorizontalAlignment="Left" Height="73" Margin="199,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontSize="16"/>
 
     </Grid>
 </Window>
