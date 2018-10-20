@@ -206,6 +206,32 @@ namespace Algorithms
 
         List<int> Quick(List<int> x)
         {
+            int center = x.Last();
+            List<int> less = new List<int>();
+            List<int> more = new List<int>();
+            for(int i = 0;i < x.Count - 1;i++)
+            {
+                if(x[i] <= center)
+                {
+                    less.Add(x[i]);
+                }
+                else
+                {
+                    more.Add(x[i]);
+                }
+            }
+            if(less.Count > 1)
+            {
+                Quick(less);
+            }
+            if(more.Count > 1)
+            {
+                Quick(more);
+            }
+            x.Clear();
+            x.AddRange(less);
+            x.Add(center);
+            x.AddRange(more);
             return x;
         }
     }
